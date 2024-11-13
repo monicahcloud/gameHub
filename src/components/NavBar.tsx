@@ -25,7 +25,7 @@ const NavBar = () => {
 
   return (
     <>
-      <div className=" navbar align-element justify-between items-center">
+      <div className=" navbar justify-between items-center">
         <img className="navbar-start w-[80px] h-[80px]" src={logo} alt="logo" />
         <h2 className=" navbar-center text-3xl ">Navbar</h2>
         <div className="navbar-end ">

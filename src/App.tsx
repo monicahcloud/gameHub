@@ -1,14 +1,17 @@
+import GameGrid from './components/GameGrid'
 import NavBar from './components/NavBar'
 
 function App() {
   return (
     <>
-      <div className="align-element grid grid-cols-1 md:grid-cols-2 grid-rows-2 gap-0">
-        <div className="col-span-2  p-2">
+      <div className=" grid grid-cols-1 md:grid-cols-2 gap-0 border-8">
+        <div className="col-span-2 border-8 ">
           <NavBar />
         </div>
-        <div className="hidden md:block p-4">Aside</div>
-        <div className="p-4 md:col-span-1">Main</div>
+        <div className="hidden md:block ">Aside</div>
+        <div className=" md:col-span-1">
+          <GameGrid />
+        </div>
       </div>
     </>
   )
