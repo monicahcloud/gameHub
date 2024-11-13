@@ -4,8 +4,8 @@ import NavBar from './components/NavBar'
 function App() {
   return (
     <>
-      <div className=" grid grid-cols-1 md:grid-cols-2 gap-0 border-8">
-        <div className="col-span-2 border-8 ">
+      <div className=" grid grid-cols-1 md:grid-cols-2 gap-0">
+        <div className="col-span-2 ">
           <NavBar />
         </div>
         <div className="hidden md:block ">Aside</div>
