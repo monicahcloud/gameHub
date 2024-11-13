@@ -25,9 +25,9 @@ const NavBar = () => {
 
   return (
     <>
-      <div className=" navbar align-element ">
+      <div className=" navbar align-element justify-between items-center">
         <img className="navbar-start w-[80px] h-[80px]" src={logo} alt="logo" />
-        <h2 className=" navbar-center text-3xl items-center">Navbar</h2>
+        <h2 className=" navbar-center text-3xl ">Navbar</h2>
         <div className="navbar-end ">
           <label className="swap swap-rotate">
             <input type="checkbox" onChange={handleTheme} />

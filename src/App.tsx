@@ -7,8 +7,8 @@ function App() {
         <div className="col-span-2  p-2">
           <NavBar />
         </div>
-        <div className="hidden md:block bg-yellow-400 p-4">Aside</div>
-        <div className="bg-blue-500 p-4 md:col-span-1">Main</div>
+        <div className="hidden md:block p-4">Aside</div>
+        <div className="p-4 md:col-span-1">Main</div>
       </div>
     </>
   )
