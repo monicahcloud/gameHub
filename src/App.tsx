@@ -1,4 +1,5 @@
 import GameGrid from './components/GameGrid'
+import GenreList from './components/GenreList'
 import NavBar from './components/NavBar'
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
         <div className="col-span-2 ">
           <NavBar />
         </div>
-        <div className="hidden md:block ">Aside</div>
+        <div className="hidden md:block "><GenreList/></div>
         <div className=" md:col-span-1">
           <GameGrid />
         </div>
