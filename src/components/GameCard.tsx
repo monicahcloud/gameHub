@@ -1,4 +1,5 @@
 import { Game } from '../hooks/useGames'
+import PlatformIconList from './PlatformIconList'
 
 interface Props {
   game: Game
@@ -15,10 +16,8 @@ const GameCard = ({ game }: Props) => {
         />
         <div className="px-6 py-4">
           <h2 className="font-bold text-md text-gray-800">{game.name}</h2>
-          {/* <p className="text-gray-700 text-base mt-2">
-            This is a simple card component using Tailwind CSS. You can easily
-            customize it further.
-          </p> */}
+         <PlatformIconList platforms={game.parent_platforms.map(p => p.platform)}/>
+       
         </div>
         {/* <div className="px-6 py-3 flex justify-between items-center">
           <button className="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm">
