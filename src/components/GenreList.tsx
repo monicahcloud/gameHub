@@ -1,8 +1,10 @@
 import useGenres from '../hooks/useGenres'
+import Spinner from './Spinner'
 
 const GenreList = () => {
-
-    const {data} = useGenres()
+  const { data, isLoading, error } = useGenres()
+  if (error) return null
+  if (isLoading) return <Spinner />
   return (
     <>
       <ul className="space-y-2">
@@ -14,7 +16,7 @@ const GenreList = () => {
                 src={genre.image_background}
                 alt={genre.name}
               />
-              <span className="ml-3">{genre.name}</span> 
+              <span className="ml-3">{genre.name}</span>
             </div>
           </li>
         ))}
