@@ -1,6 +1,4 @@
 import { BsChevronDown } from 'react-icons/bs'
-import { Platform } from '../hooks/useGames'
-import usePlatforms from '../hooks/usePlatforms'
 
 interface Props {
   onSelectSortOrder: (sortOrder: string) => void

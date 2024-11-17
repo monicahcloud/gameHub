@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import logo from '../assets/logo.webp'
 import { BsMoonFill, BsSunFill } from 'react-icons/bs'
+import SearchInputs from './SearchInputs'
 
 const themes = {
   dark: 'dark',
@@ -25,9 +26,10 @@ const NavBar = () => {
 
   return (
     <>
-      <div className=" navbar justify-between items-center">
+      <div className=" navbar items-center">
         <img className="navbar-start w-[80px] h-[80px]" src={logo} alt="logo" />
-        <h2 className=" navbar-center text-3xl ">Navbar</h2>
+        <SearchInputs/>
+     
         <div className="navbar-end ">
           <label className="swap swap-rotate">
             <input type="checkbox" onChange={handleTheme} />
