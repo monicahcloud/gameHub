@@ -1,7 +1,11 @@
 import useGenres from '../hooks/useGenres'
 import Spinner from './Spinner'
 
-const GenreList = () => {
+interface Props {
+  onSelectGenre: (genre: Genre) => void
+  selectedGenre: Genre | null
+}
+const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
   const { data, isLoading, error } = useGenres()
   if (error) return null
   if (isLoading) return <Spinner />
@@ -16,7 +20,13 @@ const GenreList = () => {
                 src={genre.image_background}
                 alt={genre.name}
               />
-              <span className="ml-3">{genre.name}</span>
+              <a
+                href="#"
+                onClick={() => onSelectGenre(genre)}
+                className="ml-3 text-slate-400 hover:underline"
+              >
+                {genre.name}
+              </a>
             </div>
           </li>
         ))}
