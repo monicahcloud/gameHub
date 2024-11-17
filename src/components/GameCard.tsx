@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Game } from '../hooks/useGames'
 import getCroppedImageUrl from '../services/image-url'
 import CriticScore from './CriticScore'
