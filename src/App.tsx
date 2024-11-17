@@ -2,10 +2,11 @@ import GameGrid from './components/GameGrid'
 import GenreList from './components/GenreList'
 import NavBar from './components/NavBar'
 import { useState } from 'react'
+import PlatformSelector from './components/PlatformSelector'
 
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null)
-
+  const [selectedPlatform, setSelectedPlatform] =  useState<Platform | null>(null)
 
   return (
     <>
@@ -17,7 +18,8 @@ function App() {
           <GenreList selectedGenre={selectedGenre} onSelectGenre={(genre) => setSelectedGenre(genre)} />
         </div>
         <div className="lg:col-start-2 bg-base-100 p-4 rounded">
-          <GameGrid selectedGenre={selectedGenre}/>
+          <PlatformSelector selectedPlatform={selectedPlatform} onSelectPlatform={(platform) => setSelectedPlatform(platform)}/>
+          <GameGrid selectedPlatform={selectedPlatform} selectedGenre={selectedGenre}/>
         </div>
       </div>
     </>
