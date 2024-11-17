@@ -17,7 +17,6 @@ const GameGrid = ({selectedGenre}: Props) => {
   return (
     <>
       <div className="grid grid-cols-1 gap-6 p-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {/* {error && <div className="text-4xl font-extrabold">{error}</div>} */}
 
         {isLoading &&
           skeletons.map((_, index) => (

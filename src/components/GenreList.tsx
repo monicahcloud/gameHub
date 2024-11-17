@@ -23,7 +23,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
               <a
                 href="#"
                 onClick={() => onSelectGenre(genre)}
-                className="ml-3 text-slate-400 hover:underline"
+                className={ `ml-3 ${genre.id === selectedGenre?.id ? 'font-extrabold' : 'font-normal'}  text-slate-400 hover:underline `}
               >
                 {genre.name}
               </a>

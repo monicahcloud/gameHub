@@ -14,7 +14,7 @@ function App() {
           <NavBar />
         </div>
         <div className="hidden lg:block lg:col-start-1 lg:col-span-1 bg-white-200 p-4 rounded ">
-          <GenreList onSelectGenre={(genre) => setSelectedGenre(genre)} />
+          <GenreList selectedGenre={selectedGenre} onSelectGenre={(genre) => setSelectedGenre(genre)} />
         </div>
         <div className="lg:col-start-2 bg-base-100 p-4 rounded">
           <GameGrid selectedGenre={selectedGenre}/>
