@@ -4,6 +4,7 @@ import NavBar from './components/NavBar'
 import { useState } from 'react'
 import PlatformSelector from './components/PlatformSelector'
 import SortSelector from './components/SortSelector'
+import GameHeading from './components/GameHeading'
 
 export interface GameQuery {
   genre: Genre | null
@@ -33,6 +34,7 @@ function App() {
         </div>
         <div className="col-span-full lg:col-start-2 p-2">
           <div className="pl-2">
+            <GameHeading gameQuery={gameQuery} />
             <div className="flex flex-wrap gap-3 mb-3">
               <div className="flex-shrink-0">
                 <PlatformSelector
