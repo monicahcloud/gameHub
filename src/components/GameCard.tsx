@@ -1,4 +1,4 @@
-
+import React from 'react'
 import { Game } from '../hooks/useGames'
 import getCroppedImageUrl from '../services/image-url'
 import CriticScore from './CriticScore'
@@ -11,23 +11,23 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <div className="card bg-base-100 shadow-xl rounded-lg overflow-hidden">
-      <img
-        className="w-full h-60 object-cover"
-        src={getCroppedImageUrl(game.background_image)}
-        alt={game.name}
-      />
-      <div className="p-4">
-        <div className="flex justify-between mb-3">
+    <div className="card bg-base-100 shadow-xl">
+      <figure>
+        <img
+          src={getCroppedImageUrl(game.background_image)}
+          alt={game.name}
+          className="w-full object-cover"
+        />
+      </figure>
+      <div className="card-body p-4">
+        <div className="flex justify-between items-center mb-3">
           <PlatformIconList
             platforms={game.parent_platforms?.map((p) => p.platform)}
           />
           <CriticScore score={game.metacritic} />
         </div>
-        <h2 className="text-2xl font-semibold">
-          <h2 className="text-2xl font-semibold">
-            {game.name} <Emoji rating={game.rating_top} />
-          </h2>
+        <h2 className="card-title text-xl">
+          {game.name} <Emoji rating={game.rating_top} />
         </h2>
       </div>
     </div>

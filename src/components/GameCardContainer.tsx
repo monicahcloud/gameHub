@@ -1,11 +1,9 @@
-import { ReactNode } from 'react'
-
 interface Props {
-  children: ReactNode
+  children: React.ReactNode
 }
 
 const GameCardContainer = ({ children }: Props) => {
-  return <div className="rounded-xl overflow-hidden shadow-lg">{children}</div>
+  return <div className="rounded-lg overflow-hidden shadow-md">{children}</div>
 }
 
 export default GameCardContainer

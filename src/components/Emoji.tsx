@@ -7,30 +7,19 @@ interface Props {
 }
 
 const Emoji = ({ rating }: Props) => {
-  // Return null if the rating is too low or undefined
   if (rating < 3) return null
 
-  const emojiMap: { [key: number]: string } = {
-    3: meh, // meh emoji
-    4: thumbsUp, // thumbs up emoji
-    5: bullsEye, // bulls-eye emoji
+  const emojiMap: {
+    [key: number]: { src: string; alt: string; size: string }
+  } = {
+    3: { src: meh, alt: 'meh', size: 'w-6 h-6' },
+    4: { src: thumbsUp, alt: 'recommended', size: 'w-6 h-6' },
+    5: { src: bullsEye, alt: 'exceptional', size: 'w-9 h-9' },
   }
 
-  // If the rating is beyond the predefined ones, return a default emoji
-  const defaultEmoji = thumbsUp // default to thumbs up emoji
+  const { src, alt, size } = emojiMap[rating]
 
-  const emojiSrc = emojiMap[rating] || defaultEmoji
-
-  // Determine the size of the emoji based on the rating
-  const sizeClass = rating === 5 ? 'w-9 h-9' : 'w-6 h-6' // Larger for exceptional (5), smaller for others
-
-  return (
-    <img
-      src={emojiSrc}
-      alt="rating emoji"
-      className={`${sizeClass} mt-1`} // Use Tailwind classes for size and margin-top
-    />
-  )
+  return <img src={src} alt={alt} className={`inline-block ${size} mt-1`} />
 }
 
 export default Emoji

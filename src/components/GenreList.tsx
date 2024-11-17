@@ -1,4 +1,3 @@
-import Spinner from './Spinner'
 import useGenres, { Genre } from '../hooks/useGenres'
 import getCroppedImageUrl from '../services/image-url'
 
@@ -12,29 +11,35 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
 
   if (error) return null
 
-  if (isLoading) return <Spinner />
+  if (isLoading)
+    return (
+      <div className="flex justify-center">
+        <div className="spinner-border text-primary" role="status"></div>
+      </div>
+    )
 
   return (
-    <div>
-      <h2 className="text-2xl font-semibold mt-9 mb-3">Genres</h2>
+    <div className="mt-9 mb-3">
+      <h2 className="text-2xl font-bold mb-4">Genres</h2>
       <ul>
         {data.map((genre) => (
-          <li key={genre.id} className="py-2">
-            <div className="flex items-center space-x-3">
-              <img
-                className="w-8 h-8 rounded-lg object-cover"
-                src={getCroppedImageUrl(genre.image_background)}
-                alt={genre.name}
-              />
-              <button
-                className={`text-left text-md font-normal ${
-                  genre.id === selectedGenre?.id ? 'font-bold' : ''
-                }`}
-                onClick={() => onSelectGenre(genre)}
-              >
-                {genre.name}
-              </button>
-            </div>
+          <li
+            key={genre.id}
+            className={`flex items-center gap-4 py-2 ${
+              genre.id === selectedGenre?.id ? 'font-bold text-primary' : ''
+            }`}
+          >
+            <img
+              className="w-8 h-8 rounded object-cover"
+              src={getCroppedImageUrl(genre.image_background)}
+              alt={genre.name}
+            />
+            <button
+              onClick={() => onSelectGenre(genre)}
+              className="text-left text-base hover:underline"
+            >
+              {genre.name}
+            </button>
           </li>
         ))}
       </ul>

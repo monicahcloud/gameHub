@@ -19,7 +19,7 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
 
   return (
     <>
-      <div className="dropdown">
+      <div className="dropdown relative">
         <label
           tabIndex={0}
           className="btn btn-neutral w-full flex justify-between items-center"
@@ -29,7 +29,7 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
         </label>
         <ul
           tabIndex={0}
-          className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+          className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 absolute z-10"
         >
           {sortOrders.map((order) => (
             <li key={order.value}>
