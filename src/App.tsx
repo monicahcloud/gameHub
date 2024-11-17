@@ -3,15 +3,15 @@ import GenreList from './components/GenreList'
 import NavBar from './components/NavBar'
 import { useState } from 'react'
 import PlatformSelector from './components/PlatformSelector'
+import SortSelector from './components/SortSelector'
 
 export interface GameQuery {
   genre: Genre | null
   platform: Platform | null
- 
 }
 
 function App() {
- const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
+  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
 
   return (
     <>
@@ -25,17 +25,21 @@ function App() {
             onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
           />
         </div>
-        <div className="lg:col-start-2 bg-base-100 p-4 rounded">
-          <PlatformSelector
-            selectedPlatform={gameQuery.platform}
-            onSelectPlatform={(platform) =>
-              setGameQuery({ ...gameQuery, platform })
-            }
-          />
-          <GameGrid
-            gameQuery={gameQuery}
-           
-          />
+        <div className="col-span-full lg:col-start-2 p-2">
+          <div className="pl-2">
+            <div className="flex flex-wrap gap-3 mb-3">
+              <div className="flex-shrink-0">
+                <PlatformSelector
+                  selectedPlatform={gameQuery.platform}
+                  onSelectPlatform={(platform) =>
+                    setGameQuery({ ...gameQuery, platform })
+                  }
+                />
+              </div>
+              <SortSelector />
+            </div>
+            <GameGrid gameQuery={gameQuery} />
+          </div>
         </div>
       </div>
     </>
