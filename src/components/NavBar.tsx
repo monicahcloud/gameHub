@@ -12,7 +12,11 @@ const getThemeFromLocalStorage = () => {
     return localStorage.getItem('theme') || themes.light
 }
 
-const NavBar = () => {
+interface Props {
+  onSearch: (searchText: string) => void
+}
+
+const NavBar = ({ onSearch }: Props) => {
   const [theme, setTheme] = useState(themes.light)
   const handleTheme = () => {
     const { light, dark } = themes
@@ -28,8 +32,8 @@ const NavBar = () => {
     <>
       <div className=" navbar items-center">
         <img className="navbar-start w-[80px] h-[80px]" src={logo} alt="logo" />
-        <SearchInputs/>
-     
+        <SearchInputs onSearch={onSearch} />
+
         <div className="navbar-end ">
           <label className="swap swap-rotate">
             <input type="checkbox" onChange={handleTheme} />
