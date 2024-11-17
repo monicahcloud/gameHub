@@ -4,9 +4,14 @@ import NavBar from './components/NavBar'
 import { useState } from 'react'
 import PlatformSelector from './components/PlatformSelector'
 
+export interface GameQuery {
+  genre: Genre | null
+  platform: Platform | null
+ 
+}
+
 function App() {
-  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null)
-  const [selectedPlatform, setSelectedPlatform] =  useState<Platform | null>(null)
+ const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
 
   return (
     <>
@@ -15,11 +20,22 @@ function App() {
           <NavBar />
         </div>
         <div className="hidden lg:block lg:col-start-1 lg:col-span-1 bg-white-200 p-4 rounded ">
-          <GenreList selectedGenre={selectedGenre} onSelectGenre={(genre) => setSelectedGenre(genre)} />
+          <GenreList
+            selectedGenre={gameQuery.genre}
+            onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+          />
         </div>
         <div className="lg:col-start-2 bg-base-100 p-4 rounded">
-          <PlatformSelector selectedPlatform={selectedPlatform} onSelectPlatform={(platform) => setSelectedPlatform(platform)}/>
-          <GameGrid selectedPlatform={selectedPlatform} selectedGenre={selectedGenre}/>
+          <PlatformSelector
+            selectedPlatform={gameQuery.platform}
+            onSelectPlatform={(platform) =>
+              setGameQuery({ ...gameQuery, platform })
+            }
+          />
+          <GameGrid
+            gameQuery={gameQuery}
+           
+          />
         </div>
       </div>
     </>
