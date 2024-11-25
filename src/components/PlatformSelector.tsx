@@ -14,7 +14,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
 
   return (
     <>
-      <div className="dropdown relative">
+      <div className="dropdown relative"> 
         <label
           tabIndex={0}
           className="btn btn-neutral w-full flex justify-between items-center"
@@ -26,7 +26,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
           tabIndex={0}
           className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 absolute z-10"
         >
-          {data.map((platform) => (
+          {data?.results.map((platform) => (
             <li key={platform.id}>
               <a
                 onClick={() => onSelectPlatform(platform)}
