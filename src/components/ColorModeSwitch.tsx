@@ -34,8 +34,8 @@ const ColorModeSwitch = () => {
           onChange={handleTheme}
           className="hidden"
         />
-        <BsSunFill className="swap-on h-4 w-4 " />
-        <BsMoonFill className="swap-off h-4 w-4 " />
+        <BsMoonFill className="swap-off h-4 w-4" />
+        <BsSunFill className="swap-on h-4 w-4" />
       </label>
       <span className="text-sm whitespace-nowrap">
         {theme === themes.dark ? 'Dark Mode' : 'Light Mode'}
