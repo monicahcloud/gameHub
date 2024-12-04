@@ -1,19 +1,19 @@
 import { BsChevronDown } from 'react-icons/bs'
 import usePlatforms, {Platform} from '../hooks/usePlatforms'
+import usePlatform from '../hooks/usePlatform'
 
 interface Props {
   onSelectPlatform: (platform: Platform) => void
-  selectedPlatform: Platform | null
-}
+  selectedPlatformId?: number}
 
-const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
+const PlatformSelector = ({ onSelectPlatform, selectedPlatformId }: Props) => {
   const { data, error } = usePlatforms()
-
+const selectedPlatform = usePlatform(selectedPlatformId) 
   if (error) return null
 
   return (
     <>
-      <div className="dropdown relative"> 
+      <div className="dropdown relative">
         <label
           tabIndex={0}
           className="btn btn-neutral w-full flex justify-between items-center"

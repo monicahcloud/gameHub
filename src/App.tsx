@@ -5,7 +5,6 @@ import GenreList from './components/GenreList'
 import NavBar from './components/NavBar'
 import PlatformSelector from './components/PlatformSelector'
 import SortSelector from './components/SortSelector'
-import { Platform } from './hooks/usePlatforms'
 
 
 //undefined: the absence of a value
@@ -13,7 +12,7 @@ import { Platform } from './hooks/usePlatforms'
 
 export interface GameQuery {
   genreId?: number;
-  platform: Platform | null
+  platformId?: number;
   sortOrder: string
   searchText: string
 }
@@ -34,7 +33,9 @@ function App() {
       <div className="hidden lg:block px-5">
         <GenreList
           selectedGenreId={gameQuery.genreId}
-          onSelectGenre={(genre) => setGameQuery({ ...gameQuery,genreId: genre.id })}
+          onSelectGenre={(genre) =>
+            setGameQuery({ ...gameQuery, genreId: genre.id })
+          }
         />
       </div>
 
@@ -45,9 +46,9 @@ function App() {
           {/* Platform Selector */}
           <div className="mr-5">
             <PlatformSelector
-              selectedPlatform={gameQuery.platform}
+              selectedPlatformId={gameQuery.platformId}
               onSelectPlatform={(platform) =>
-                setGameQuery({ ...gameQuery, platform })
+                setGameQuery({ ...gameQuery, platformId: platform.id })
               }
             />
           </div>
