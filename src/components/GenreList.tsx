@@ -2,11 +2,11 @@ import useGenres, { Genre } from '../hooks/useGenres'
 import getCroppedImageUrl from '../services/image-url'
 
 interface Props {
-  onSelectGenre: (genre: Genre) => void
-  selectedGenre: Genre | null
+  onSelectGenre: (genre: Genre) => void;
+  selectedGenreId?: number
 }
 
-const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
+const GenreList = ({ selectedGenreId, onSelectGenre }: Props) => {
   const { data, isLoading, error } = useGenres()
 
   if (error) return null
@@ -26,7 +26,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
           <li
             key={genre.id}
             className={`flex items-center gap-4 py-2 ${
-              genre.id === selectedGenre?.id ? 'font-bold text-primary' : ''
+              genre.id === selectedGenreId ? 'font-bold text-primary' : ''
             }`}
           >
             <img

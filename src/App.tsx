@@ -6,10 +6,13 @@ import NavBar from './components/NavBar'
 import PlatformSelector from './components/PlatformSelector'
 import SortSelector from './components/SortSelector'
 import { Platform } from './hooks/usePlatforms'
-import { Genre } from './hooks/useGenres'
+
+
+//undefined: the absence of a value
+//null: the international absence of a value
 
 export interface GameQuery {
-  genre: Genre | null
+  genreId?: number;
   platform: Platform | null
   sortOrder: string
   searchText: string
@@ -30,8 +33,8 @@ function App() {
       {/* Sidebar for Genre List */}
       <div className="hidden lg:block px-5">
         <GenreList
-          selectedGenre={gameQuery.genre}
-          onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+          selectedGenreId={gameQuery.genreId}
+          onSelectGenre={(genre) => setGameQuery({ ...gameQuery,genreId: genre.id })}
         />
       </div>
 
