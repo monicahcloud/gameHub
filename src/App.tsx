@@ -6,7 +6,6 @@ import NavBar from './components/NavBar'
 import PlatformSelector from './components/PlatformSelector'
 import SortSelector from './components/SortSelector'
 
-
 //undefined: the absence of a value
 //null: the international absence of a value
 
