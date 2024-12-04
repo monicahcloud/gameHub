@@ -9,58 +9,35 @@ import SortSelector from './components/SortSelector'
 //undefined: the absence of a value
 //null: the international absence of a value
 
-export interface GameQuery {
-  genreId?: number;
-  platformId?: number;
-  sortOrder: string
-  searchText: string
-}
 
 function App() {
-  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
+
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-4">
       {/* Navigation */}
       <div className="col-span-full">
-        <NavBar
-          onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })}
-        />
+        <NavBar/>
       </div>
 
       {/* Sidebar for Genre List */}
       <div className="hidden lg:block px-5">
-        <GenreList
-          selectedGenreId={gameQuery.genreId}
-          onSelectGenre={(genre) =>
-            setGameQuery({ ...gameQuery, genreId: genre.id })
-          }
-        />
+        <GenreList />
       </div>
 
       {/* Main Content */}
       <div className="px-2">
-        <GameHeading gameQuery={gameQuery} />
+        <GameHeading />
         <div className="flex mb-5">
           {/* Platform Selector */}
           <div className="mr-5">
-            <PlatformSelector
-              selectedPlatformId={gameQuery.platformId}
-              onSelectPlatform={(platform) =>
-                setGameQuery({ ...gameQuery, platformId: platform.id })
-              }
-            />
+            <PlatformSelector/>
           </div>
           {/* Sort Selector */}
-          <SortSelector
-            sortOrder={gameQuery.sortOrder}
-            onSelectSortOrder={(sortOrder) =>
-              setGameQuery({ ...gameQuery, sortOrder })
-            }
-          />
+          <SortSelector/>
         </div>
         {/* Game Grid */}
-        <GameGrid gameQuery={gameQuery} />
+        <GameGrid />
       </div>
     </div>
   )

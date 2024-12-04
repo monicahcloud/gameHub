@@ -1,4 +1,4 @@
-import { GameQuery } from '../App'
+
 import React from 'react'
 import useGames from '../hooks/useGames'
 import GameCard from './GameCard'
@@ -6,13 +6,12 @@ import GameCardSkeleton from './GameCardSkelton'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import Spinner from './Spinner'
 
-interface Props {
-  gameQuery: GameQuery
-}
 
-const GameGrid = ({ gameQuery }: Props) => {
-  const { data, error, isLoading, fetchNextPage, hasNextPage } = useGames(gameQuery)
+
+const GameGrid = () => {
+  const { data, error, isLoading, fetchNextPage, hasNextPage } = useGames()
   const skeletons = Array.from({ length: 6 }, (_, i) => i + 1)
+
 
   if (error) return <p className="text-red-500 text-center">{error.message}</p>
 const fetchGameCount = data ?.pages.reduce((total, page) => total + page.results.length, 0) || 0

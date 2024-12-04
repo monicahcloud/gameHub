@@ -1,11 +1,7 @@
 import { BsChevronDown } from 'react-icons/bs'
+import useGameQueryStore from '../store'
 
-interface Props {
-  onSelectSortOrder: (sortOrder: string) => void
-  sortOrder: string
-}
-
-const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
+const SortSelector = () => {
   const sortOrders = [
     { value: '', label: 'Relevance' },
     { value: '-added', label: 'Date added' },
@@ -14,7 +10,8 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
     { value: '-metacritic', label: 'Popularity' },
     { value: '-rating', label: 'Average rating' },
   ]
-
+  const sortOrder = useGameQueryStore((s) => s.gameQuery.sortOrder)
+  const setSortOrder = useGameQueryStore((s) => s.setSortOrder)
   const currentSortOrder = sortOrders.find((order) => order.value === sortOrder)
 
   return (
@@ -34,7 +31,7 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
           {sortOrders.map((order) => (
             <li key={order.value}>
               <a
-                onClick={() => onSelectSortOrder(order.value)}
+                onClick={() => setSortOrder(order.value)}
                 className="hover:bg-primary hover:text-white cursor-pointer"
               >
                 {order.label}
