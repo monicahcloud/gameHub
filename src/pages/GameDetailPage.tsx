@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom'
 import useGame from '../hooks/useGame'
 import  Spinner  from '../components/Spinner'
+import ExpandableText from '../components/ExpandableText'
 
 const GameDetailPage = () => {
   const { slug } = useParams()
@@ -13,7 +14,7 @@ const GameDetailPage = () => {
       <h1 className="text-4xl font-semibold text-slat-800 prose">
         {game.name}
       </h1>
-      <p className="text-lg text-slat-600 prose">{game.description_raw}</p>
+      <ExpandableText>{game.description_raw}</ExpandableText>
     </>
   )
 }
