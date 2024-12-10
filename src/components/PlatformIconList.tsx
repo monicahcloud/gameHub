@@ -1,4 +1,4 @@
-import { Platform } from '../hooks/Platform'
+import Platform  from '../entities/Platform'
 import {
   FaWindows,
   FaPlaystation,
