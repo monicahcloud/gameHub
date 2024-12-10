@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom'
 import { Game } from '../hooks/useGames'
 import getCroppedImageUrl from '../services/image-url'
 import CriticScore from './CriticScore'
@@ -11,7 +12,7 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <div className="card bg-base-100 shadow-xl">
+    <div className="card bg-base-100 shadow-xl hover:scale-105 transition-all duration-300 ease-in-out ">
       <figure>
         <img
           src={getCroppedImageUrl(game.background_image)}
@@ -27,7 +28,8 @@ const GameCard = ({ game }: Props) => {
           <CriticScore score={game.metacritic} />
         </div>
         <h2 className="card-title text-xl">
-          {game.name} <Emoji rating={game.rating_top} />
+          <Link to={'/games/' + game.slug}>{game.name}</Link>{' '}
+          <Emoji rating={game.rating_top} />
         </h2>
       </div>
     </div>

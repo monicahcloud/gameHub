@@ -17,9 +17,9 @@ const ErrorPage = () => {
           <p className="text-lg text-gray-600 mb-6">
             {isRouteErrorResponse(error) ? 'Sorry, the page you are looking for does not exist.' : 'An unexpected error has occured.'}
           </p>
-          <a href="/" className="btn btn-primary">
+          {/* <a href="/" className="btn btn-primary">
             Go Back to Home
-          </a>
+          </a> */}
         </div>
       </div>
     </>
